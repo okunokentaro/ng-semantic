@@ -1,13 +1,14 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { BrowserModule } from '@angular/platform-browser'
+import { NgModule } from '@angular/core'
+import { FormsModule } from '@angular/forms'
+import { HttpModule } from '@angular/http'
 
-import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { ButtonDemoComponent } from './button-demo/button-demo.component';
-import { ContainerDemoComponent } from './container-demo/container-demo.component';
-import { GridDemoComponent } from './grid-demo/grid-demo.component';
+import { NgSemanticModule } from '../../../index'
+import { AppComponent } from './app.component'
+import { HomeComponent } from './home/home.component'
+import { ButtonDemoComponent } from './button-demo/button-demo.component'
+import { ContainerDemoComponent } from './container-demo/container-demo.component'
+import { GridDemoComponent } from './grid-demo/grid-demo.component'
 
 @NgModule({
   declarations: [
@@ -15,12 +16,13 @@ import { GridDemoComponent } from './grid-demo/grid-demo.component';
     HomeComponent,
     ButtonDemoComponent,
     ContainerDemoComponent,
-    GridDemoComponent
+    GridDemoComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    NgSemanticModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

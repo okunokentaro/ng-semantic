@@ -5,7 +5,10 @@ import { GridComponent } from './src/grid'
 import { ColumnComponent } from './src/column'
 import { ContainerComponent } from './src/container'
 
-const components = [
+/**
+ * It needs `export` for Angular AoT compilation.
+ */
+export const components = [
   ButtonComponent,
   GridComponent,
   ColumnComponent,

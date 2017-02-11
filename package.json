@@ -1,19 +1,25 @@
 {
   "name": "@armorik83/ng-semantic",
   "version": "0.1.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "author": "OKUNOKENTARO",
+  "bugs": {
+    "url": "https://github.com/armorik83/ng-semantic/issues"
   },
+  "devDependencies": {
+    "@angular/core": "^2.4.0",
+    "core-js": "^2.4.1",
+    "rxjs": "^5.0.1",
+    "typescript": "~2.0.0",
+    "zone.js": "^0.7.2"
+  },
+  "homepage": "https://github.com/armorik83/ng-semantic#readme",
+  "license": "MIT",
+  "main": "index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/armorik83/ng-semantic.git"
   },
-  "author": "OKUNOKENTARO",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/armorik83/ng-semantic/issues"
-  },
-  "homepage": "https://github.com/armorik83/ng-semantic#readme"
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
 }

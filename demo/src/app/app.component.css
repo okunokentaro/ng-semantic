@@ -1,0 +1,22 @@
+:host {
+  display: flex;
+}
+
+#toc {
+  width: 200px;
+  height: 100vh;
+  background-color: #1b1c1d;
+  color: rgba(255,255,255,.9);
+}
+
+#toc a {
+  color: rgba(255,255,255,.5);
+}
+
+#toc a:hover {
+  color: rgba(255,255,255,.9);
+}
+
+* {
+  font-size: 13px;
+}

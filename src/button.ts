@@ -1,51 +1,80 @@
 import {
-  Component, OnInit, ElementRef, Input, ViewChild,
-  AfterViewInit, Output, EventEmitter, HostListener
+  AfterViewInit, Component, ElementRef, Input,
+  ViewChild
 } from '@angular/core'
 
 @Component({
   selector: 'ui-button',
-  template: '<button #BUTTON><ng-content></ng-content></button>'
+  template: `
+    <button
+      #BUTTON
+      class="ui button"
+      [attr.disabled]="_disabled ? true : null"
+    >
+      <ng-content></ng-content>
+    </button>
+  `
 })
-export class ButtonComponent implements OnInit, AfterViewInit {
+export class ButtonComponent implements AfterViewInit {
   @ViewChild('BUTTON') buttonRef: ElementRef
-  @Output() uiClick = new EventEmitter()
-  private elem: HTMLElement
+  private button: HTMLButtonElement
   private _disabled = false
 
-  constructor(elemRef: ElementRef) {
-    this.elem = elemRef.nativeElement
-  }
-
-  ngOnInit() {}
+  constructor() { }
 
   ngAfterViewInit() {
-    this.buttonRef.nativeElement.classList.add('ui', 'button')
-  }
-
-  @Input()
-  set type(v: string) {
-    this.buttonRef.nativeElement.setAttribute('type', v)
+    this.button = this.buttonRef.nativeElement
   }
 
   @Input()
   set inverted(v: boolean) {
-    if (v) {
-      this.buttonRef.nativeElement.classList.add('inverted')
-    }
+    this.toggleClass('inverted', v)
+  }
+
+  @Input()
+  set basic(v: boolean) {
+    this.toggleClass('basic', v)
   }
 
   @Input()
   set primary(v: boolean) {
-    if (v) {
-      this.buttonRef.nativeElement.classList.add('primary')
-    }
+    this.toggleClass('primary', v)
   }
 
   @Input()
   set disabled(v: boolean) {
     this._disabled = v
-    const className = 'disabled'
+    this.toggleClass('disabled', v)
+  }
+
+  @Input()
+  set color(colorName: string) {
+    const predefinedColors = [
+      'red',
+      'orange',
+      'yellow',
+      'olive',
+      'green',
+      'teal',
+      'blue',
+      'violet',
+      'purple',
+      'pink',
+      'brown',
+      'grey',
+      'black',
+    ]
+
+    if (!predefinedColors.some(v => v === colorName)) {
+      console.error(`The specified color is not defined: ${colorName}`);
+      return
+    }
+
+    predefinedColors.forEach(v => this.buttonRef.nativeElement.classList.remove(v))
+    this.buttonRef.nativeElement.classList.add(colorName)
+  }
+
+  private toggleClass(className: string, v: boolean) {
     if (v) {
       this.buttonRef.nativeElement.classList.add(className)
     } else {
@@ -53,12 +82,4 @@ export class ButtonComponent implements OnInit, AfterViewInit {
     }
   }
 
-  @HostListener('click', ['$event'])
-  onClick(ev: MouseEvent) {
-    if (this._disabled) {
-      ev.preventDefault()
-      return
-    }
-    this.uiClick.emit(ev)
-  }
 }

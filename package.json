@@ -20,6 +20,7 @@
     "url": "git+https://github.com/armorik83/ng-semantic.git"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "cd ./demo && npm start"
   }
 }

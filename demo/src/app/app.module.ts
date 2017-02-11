@@ -9,6 +9,7 @@ import { HomeComponent } from './home/home.component'
 import { ButtonDemoComponent } from './button-demo/button-demo.component'
 import { ContainerDemoComponent } from './container-demo/container-demo.component'
 import { GridDemoComponent } from './grid-demo/grid-demo.component'
+import { ROUTING } from './app.routing'
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { GridDemoComponent } from './grid-demo/grid-demo.component'
     FormsModule,
     HttpModule,
     NgSemanticModule,
+    ROUTING,
   ],
   providers: [],
   bootstrap: [AppComponent]

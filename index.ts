@@ -5,22 +5,18 @@ import { GridComponent } from './src/grid'
 import { ColumnComponent } from './src/column'
 import { ContainerComponent } from './src/container'
 
-/**
- * It needs `export` for Angular AoT compilation.
- */
-export const components = [
-  ButtonComponent,
-  GridComponent,
-  ColumnComponent,
-  ContainerComponent,
-] as any[];
-
 @NgModule({
   declarations: [
-    components,
+    ButtonComponent,
+    GridComponent,
+    ColumnComponent,
+    ContainerComponent,
   ],
   exports     : [
-    components,
+    ButtonComponent,
+    GridComponent,
+    ColumnComponent,
+    ContainerComponent,
   ]
 })
 export class NgSemanticModule {

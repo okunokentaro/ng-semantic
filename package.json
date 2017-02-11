@@ -21,6 +21,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "cd ./demo && npm start"
+    "start": "yarn run install-to-demo && cd ./demo && npm start",
+    "install-to-demo": "mkdir -p ./demo/node_modules/@armorik83/semantic-ui && cp index.ts ./demo/node_modules/@armorik83/semantic-ui/index.ts && cp package.json ./demo/node_modules/@armorik83/semantic-ui/package.json && cp -rf ./src ./demo/node_modules/@armorik83/semantic-ui"
   }
 }

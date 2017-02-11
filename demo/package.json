@@ -45,7 +45,7 @@
     "link-semantic": "cp -r ./semantic/dist ./src/semantic",
     "lint": "ng lint",
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --aot",
     "test": "ng test"
   }
 }

@@ -1,0 +1,19 @@
+{
+  "name": "@armorik83/ng-semantic",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/armorik83/ng-semantic.git"
+  },
+  "author": "OKUNOKENTARO",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/armorik83/ng-semantic/issues"
+  },
+  "homepage": "https://github.com/armorik83/ng-semantic#readme"
+}

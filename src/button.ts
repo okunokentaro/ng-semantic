@@ -1,7 +1,24 @@
 import {
-  AfterViewInit, Component, ElementRef, Input,
-  ViewChild
+  Component, ElementRef, Input, ViewChild
 } from '@angular/core'
+import { checkDefined } from './utils/check-defined';
+import { switchClass, toggleClass } from './utils/control-class-list';
+
+const predefined = [
+  {def: 'red'},
+  {def: 'orange'},
+  {def: 'yellow'},
+  {def: 'olive'},
+  {def: 'green'},
+  {def: 'teal'},
+  {def: 'blue'},
+  {def: 'violet'},
+  {def: 'purple'},
+  {def: 'pink'},
+  {def: 'brown'},
+  {def: 'grey'},
+  {def: 'black'},
+]
 
 @Component({
   selector: 'ui-button',
@@ -15,71 +32,39 @@ import {
     </button>
   `
 })
-export class ButtonComponent implements AfterViewInit {
+export class ButtonComponent {
+
   @ViewChild('BUTTON') buttonRef: ElementRef
   private button: HTMLButtonElement
   private _disabled = false
 
-  constructor() { }
-
-  ngAfterViewInit() {
-    this.button = this.buttonRef.nativeElement
-  }
-
   @Input()
   set inverted(v: boolean) {
-    this.toggleClass('inverted', v)
+    toggleClass(this.buttonRef.nativeElement.classList, 'inverted', v)
   }
 
   @Input()
   set basic(v: boolean) {
-    this.toggleClass('basic', v)
+    toggleClass(this.buttonRef.nativeElement.classList, 'basic', v)
   }
 
   @Input()
   set primary(v: boolean) {
-    this.toggleClass('primary', v)
+    toggleClass(this.buttonRef.nativeElement.classList, 'primary', v)
   }
 
   @Input()
   set disabled(v: boolean) {
     this._disabled = v
-    this.toggleClass('disabled', v)
+    toggleClass(this.buttonRef.nativeElement.classList, 'disabled', v)
   }
 
   @Input()
-  set color(colorName: string) {
-    const predefinedColors = [
-      'red',
-      'orange',
-      'yellow',
-      'olive',
-      'green',
-      'teal',
-      'blue',
-      'violet',
-      'purple',
-      'pink',
-      'brown',
-      'grey',
-      'black',
-    ]
-
-    if (!predefinedColors.some(v => v === colorName)) {
-      console.error(`The specified color is not defined: ${colorName}`);
+  set color(name: string) {
+    if (!checkDefined(predefined, name)) {
       return
     }
-
-    predefinedColors.forEach(v => this.buttonRef.nativeElement.classList.remove(v))
-    this.buttonRef.nativeElement.classList.add(colorName)
-  }
-
-  private toggleClass(className: string, v: boolean) {
-    if (v) {
-      this.buttonRef.nativeElement.classList.add(className)
-    } else {
-      this.buttonRef.nativeElement.classList.remove(className)
-    }
+    switchClass(this.buttonRef.nativeElement.classList, predefined, name)
   }
 
 }
